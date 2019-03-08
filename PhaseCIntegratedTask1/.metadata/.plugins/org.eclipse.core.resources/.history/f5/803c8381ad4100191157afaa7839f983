@@ -245,16 +245,6 @@ public class UserDao implements DAO{
 		UserDao dao=new UserDao();
 		User u=new User();
 		
-		/*
-		Scanner sc=new Scanner(System.in);
-		Scanner sc2=new Scanner(System.in);
-		System.out.print("请输入用户名:");
-		String in=sc.next();
-		System.out.print("请输入密码：");
-		String in2=sc.next();
-		dao.login(in, in2);
-		*/
-		
 		
 		/*
 		 * add()Test
@@ -299,15 +289,22 @@ public class UserDao implements DAO{
 		dao.query("乔丹");
 		*/
 		
-		
 		/*
 		 * queryCount()Test
 		 * query user number
 		 */
-		/*
 		dao.queryCount();
-		*/
 		
+		
+		/*
+		Scanner sc=new Scanner(System.in);
+		Scanner sc2=new Scanner(System.in);
+		System.out.print("请输入用户名:");
+		String in=sc.next();
+		System.out.print("请输入密码：");
+		String in2=sc.next();
+		dao.login(in, in2);
+		*/
 		
 		
 		

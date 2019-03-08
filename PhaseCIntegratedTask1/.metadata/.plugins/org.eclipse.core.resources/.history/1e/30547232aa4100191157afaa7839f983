@@ -140,7 +140,7 @@ public class UserDao implements DAO{
 			ptmt.setInt(4, u.getId());
 			Boolean n=ptmt.execute();
 			if(n=true) {
-				System.out.println("更新成功");
+				System.out.println("���³ɹ�");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -213,7 +213,7 @@ public class UserDao implements DAO{
 		}finally {
 			release(conn, ptmt,rs);
 		}
-		System.out.println("_user一共有"+n+"行记录");
+		System.out.println("_user��һ����"+n+"�м�¼");
 		
 		return n;
 	}
@@ -240,26 +240,15 @@ public class UserDao implements DAO{
 		}		
 	}
 
+	
+	
 	public static void main(String[] args) {
+		
 		
 		UserDao dao=new UserDao();
 		User u=new User();
 		
-		/*
-		Scanner sc=new Scanner(System.in);
-		Scanner sc2=new Scanner(System.in);
-		System.out.print("请输入用户名:");
-		String in=sc.next();
-		System.out.print("请输入密码：");
-		String in2=sc.next();
-		dao.login(in, in2);
-		*/
-		
-		
-		/*
-		 * add()Test
-		 * add User
-		 */
+		//add()Test
 		/*
 		u.setId(2);
 		u.setName("AA");
@@ -268,45 +257,18 @@ public class UserDao implements DAO{
 		dao.add(u);
 		*/
 		
-		
-		/*
-		 * delete()Test
-		 * deltet ID 2 User
-		 */
-		/*
-		dao.delete(2);
-		*/
-	    
-		
-		/*
-		 * update()Test
-		 * Update ID 10 name, password, integral
-		 */
-		/*
-		u.setName("乔丹");
-		u.setPassword("123456");
-		u.setIntegral(23.0);
-		u.setId(10);
-		dao.update(u);
-		*/
+		//
 		
 		
-		/*
-		 * query()Test
-		 * query user
-		 */
-		/*
-		dao.query("乔丹");
-		*/
+		Scanner sc=new Scanner(System.in);
+		Scanner sc2=new Scanner(System.in);
+		System.out.print("请输入用户名:");
+		String in=sc.next();
+		System.out.print("请输入密码：");
+		String in2=sc.next();
 		
 		
-		/*
-		 * queryCount()Test
-		 * query user number
-		 */
-		/*
-		dao.queryCount();
-		*/
+		dao.login(in, in2);
 		
 		
 		

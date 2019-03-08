@@ -245,6 +245,30 @@ public class UserDao implements DAO{
 		UserDao dao=new UserDao();
 		User u=new User();
 		
+		//add()Test
+		/*
+		u.setId(2);
+		u.setName("AA");
+		u.setPassword("qwe");
+		u.setIntegral(10.2);
+		dao.add(u);
+		*/
+		
+		//delete()Test
+		/*
+		dao.delete(2);
+		*/
+	    
+		//update()Test
+		u.setName("乔丹");
+		u.setPassword("123456");
+		u.setIntegral(23.0);
+		u.setId(1);
+		dao.update(u);
+
+		
+		
+		
 		/*
 		Scanner sc=new Scanner(System.in);
 		Scanner sc2=new Scanner(System.in);
@@ -254,60 +278,6 @@ public class UserDao implements DAO{
 		String in2=sc.next();
 		dao.login(in, in2);
 		*/
-		
-		
-		/*
-		 * add()Test
-		 * add User
-		 */
-		/*
-		u.setId(2);
-		u.setName("AA");
-		u.setPassword("qwe");
-		u.setIntegral(10.2);
-		dao.add(u);
-		*/
-		
-		
-		/*
-		 * delete()Test
-		 * deltet ID 2 User
-		 */
-		/*
-		dao.delete(2);
-		*/
-	    
-		
-		/*
-		 * update()Test
-		 * Update ID 10 name, password, integral
-		 */
-		/*
-		u.setName("乔丹");
-		u.setPassword("123456");
-		u.setIntegral(23.0);
-		u.setId(10);
-		dao.update(u);
-		*/
-		
-		
-		/*
-		 * query()Test
-		 * query user
-		 */
-		/*
-		dao.query("乔丹");
-		*/
-		
-		
-		/*
-		 * queryCount()Test
-		 * query user number
-		 */
-		/*
-		dao.queryCount();
-		*/
-		
 		
 		
 		

@@ -1,0 +1,12 @@
+package Dao;
+
+import java.util.List;
+
+public interface DAO<U> {
+	public void add(User u);
+	public void delete(U u);
+	public void update(User u);
+	public List<U> query(U s);
+	public int queryCount();
+	
+}

@@ -1,0 +1,18 @@
+package test;
+
+import java.util.List;
+
+import action.UserAction;
+import dao.User;
+
+public class TestAction {
+	public static void main(String[] args) {
+		UserAction a=new UserAction();
+		
+		
+		List<User> l=a.query("AA");
+		for (User user : l) {
+			System.out.println(user.getId());
+		}
+	}
+}

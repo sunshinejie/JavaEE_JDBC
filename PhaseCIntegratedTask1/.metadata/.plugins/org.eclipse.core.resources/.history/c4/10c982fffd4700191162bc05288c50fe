@@ -1,0 +1,11 @@
+package dao;
+
+import java.util.List;
+
+public interface DAO {
+	public void add(User user);
+	public void delete(Integer id);
+	public void update(User user);
+	public List<User> query(String name);
+	public int queryCount();
+}

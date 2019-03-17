@@ -1,4 +1,4 @@
-package Dao;
+package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -83,22 +83,20 @@ public class UserDao implements DAO{
 	 * @see Dao.DAO#add(Dao.User)
 	 */
 	@Override
-	public void add(User u){
+	public void add(User user){
 		Connection conn=getConnection();
 		String sql=" insert into _user values(?,?,?,?); ";
 		PreparedStatement ptmt=null;
 		try {
 			ptmt=conn.prepareStatement(sql);
-			ptmt.setInt(1, u.getId());
-			ptmt.setString(2, u.getName());
-			ptmt.setString(3, u.getPassword());
-			ptmt.setDouble(4, u.getIntegral());
+			ptmt.setInt(1, user.getId());
+			ptmt.setString(2, user.getName());
+			ptmt.setString(3, user.getPassword());
+			ptmt.setDouble(4, user.getIntegral());
 			ptmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
-			release(conn, ptmt);
 		}
 		
 	}
@@ -108,18 +106,16 @@ public class UserDao implements DAO{
 	 * @see Dao.DAO#delete(java.lang.Object)
 	 */
 	@Override
-	public void delete(int u) {
+	public void delete(int id) {
 		Connection conn=getConnection();
 		String sql=" delete from _user where id=?; ";
 	    PreparedStatement ptmt=null;
 		try {
 			ptmt=conn.prepareStatement(sql);
-			ptmt.setObject(1, u);
+			ptmt.setInt(1, id);
 			ptmt.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
-			release(conn, ptmt);
 		}
 	}
 
@@ -128,25 +124,21 @@ public class UserDao implements DAO{
 	 * @see Dao.DAO#update(Dao.User)
 	 */
 	@Override
-	public void update(User u) {
+	public void update(User user,String name) {
 		Connection conn=getConnection();
-		String sql=" update _user set name=?,password=?,integral=? where id=?; ";
+		String sql=" update _user set id=?,name=?,password=?,integral=? where id=?; ";
 		PreparedStatement ptmt=null;
 		try {
 			ptmt=conn.prepareStatement(sql);
-			ptmt.setString(1, u.getName());
-			ptmt.setString(2, u.getPassword());
-			ptmt.setDouble(3, u.getIntegral());
-			ptmt.setInt(4, u.getId());
-			Boolean n=ptmt.execute();
-			if(n=true) {
-				System.out.println("更新成功");
-			}
+			ptmt.setInt(1, user.getId());
+			ptmt.setString(2, user.getName());
+			ptmt.setString(3, user.getPassword());
+			ptmt.setDouble(4, user.getIntegral());
+			ptmt.setString(5, name);
+			ptmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
-			release(conn, ptmt);
 		}
 		
 	}
@@ -177,12 +169,6 @@ public class UserDao implements DAO{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
-			release(conn, ptmt,rs);
-		}
-		
-		for (User user : list) {
-			System.out.println(user.toString());
 		}
 		return list;
 	}
@@ -210,10 +196,7 @@ public class UserDao implements DAO{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
-			release(conn, ptmt,rs);
 		}
-		System.out.println("_user一共有"+n+"行记录");
 		
 		return n;
 	}
@@ -235,16 +218,15 @@ public class UserDao implements DAO{
 			}
 		} catch (Exception e) {
 			throw new RuntimeException(e);
-		} finally {
-			release(con, ptmt,rs);
-		}		
+		} 		
 	}
 
 	public static void main(String[] args) {
 		
-		UserDao dao=new UserDao();
+		DAO dao=new UserDao();
 		User u=new User();
 		
+		//login()Test
 		/*
 		Scanner sc=new Scanner(System.in);
 		Scanner sc2=new Scanner(System.in);
@@ -255,18 +237,17 @@ public class UserDao implements DAO{
 		dao.login(in, in2);
 		*/
 		
-		
 		/*
 		 * add()Test
 		 * add User
 		 */
-		/*
-		u.setId(2);
+		
+		u.setId(5);
 		u.setName("AA");
 		u.setPassword("qwe");
 		u.setIntegral(10.2);
 		dao.add(u);
-		*/
+		
 		
 		
 		/*

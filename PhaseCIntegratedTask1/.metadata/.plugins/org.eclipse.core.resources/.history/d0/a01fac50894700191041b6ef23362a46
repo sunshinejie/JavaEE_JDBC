@@ -1,0 +1,11 @@
+package test;
+
+import action.UserAction;
+
+public class TestAction {
+	public static void main(String[] args) {
+		UserAction a=new UserAction();
+		int n=a.queryCount();
+		System.out.println(n);
+	}
+}
